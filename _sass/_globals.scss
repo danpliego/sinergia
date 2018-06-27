@@ -1,0 +1,146 @@
+
+// Reset
+
+body {
+  background: url('images/body-bg.png') no-repeat top center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, label {
+  font-weight: 900;
+  letter-spacing: -.1rem;
+}
+
+.fa-ul {
+  margin-left: 2.3rem;
+  .fa-li {
+    margin-top: 7px;
+  }
+  a {
+    padding-left: 1rem;
+  }
+}
+
+.btn-primary {
+  font-weight: 900;
+  @include gradient-directional($start-color: $warning-color, $end-color: $danger-color, $deg: -135deg);
+  border: 0;
+  color: white;
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  &:hover {
+    box-shadow: 1px 1px 20px rgba($primary-color, .9);
+  }
+}
+
+// Styles
+
+.main {
+  margin-top: 3rem;
+  box-shadow: 0 1.3rem 1.3rem rgba(0,0,0,.05);
+  .header {
+    padding: 3rem;
+    position: relative;
+  }
+  .gradient-shadow {
+    position: absolute;
+    left: -40px;
+    top: -33px;
+  }
+}
+.item {
+  position: relative;
+  .item-box {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    color: #fff;
+    &.primary {
+      background: $primary-color;
+    }
+    &.danger {
+      background: $danger-color;
+    }
+    &.warning {
+      background: $warning-color;
+    }
+  }
+  .item-desc {
+    align-self: center;
+    flex: 1;
+  }
+  &:hover {
+    .item-box {
+      display: flex;
+    }
+  }
+}
+#contacto {
+  position: relative;
+  padding-bottom: 9rem!important;
+}
+.contact-container {
+  position: relative;
+  .gradient-shadow-footer {
+    position: absolute;
+    right: -40px;
+    top: -97px;
+  }
+}
+.footer-detail {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.form-control {
+  border: 0;
+  border-bottom: 1px solid;
+  border-radius: 0;
+  color: white!important;
+  padding: 1rem 0;
+  font-weight: 500;
+  font-size: 1.25rem;
+  &:focus {
+    border-color: $danger-color;
+  }
+}
+.contact-info {
+  font-size: 1.5rem;
+}
+
+@include media-breakpoint-down(sm) {
+  .main .header {
+    padding: 1.5rem;
+    h1 {
+      font-size: 2rem;
+      margin-top: -2rem;
+    }
+  }
+  #portafolio h4 {
+    padding-top: 0!important;
+  }
+  .gradient-shadow-footer {
+    display: none;
+  }
+  .contact-info > div {
+    padding: 2rem 0!important;
+  }
+  .item {
+    margin-bottom: 1.5rem;
+    .item-box {
+      display: flex;
+      padding: 1rem;
+      position: relative;
+      h3 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+

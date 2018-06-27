@@ -1,0 +1,25 @@
+---
+---
+
+@font-face {
+font-family: 'Circular';
+src: url('../../fonts/CircularStd-Book.ttf');
+font-weight: 500;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'Circular';
+src: url('../../fonts/CircularStd-Black.ttf');
+font-weight: 900;
+font-style: normal;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@import "variables";
+@import "bootstrap/scss/bootstrap";
+@import "globals";
