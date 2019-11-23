@@ -255,6 +255,15 @@ section {
   }
 }
 
+@include media-breakpoint-only(xl) {
+    
+  .header .video-container video {
+    width: 150%;
+    height: 150%;
+    top: -50%;
+  }
+}
+
 @include media-breakpoint-down(md) {
   .header {
     padding-top: 17rem;
