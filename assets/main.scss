@@ -2,23 +2,28 @@
 ---
 
 @font-face {
-font-family: 'Circular';
-src: url('../../fonts/CircularStd-Book.ttf');
-font-weight: 500;
-font-style: normal;
+  font-family: "SportingGrotesque";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/Sporting_Grotesque-Regular_web.woff2") format("woff2");
 }
 
 @font-face {
-font-family: 'Circular';
-src: url('../../fonts/CircularStd-Black.ttf');
-font-weight: 900;
-font-style: normal;
+  font-family: "SportingGrotesque";
+  font-style: bold;
+  font-weight: 600;
+  src: url("fonts/Sporting_Grotesque-Bold_web.woff2") format("woff2");
 }
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+html, body {
+  font-size: 15px;
+}
+
 
 @import "variables";
 @import "bootstrap/scss/bootstrap";

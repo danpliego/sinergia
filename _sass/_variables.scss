@@ -1,24 +1,24 @@
 $font-size-base: 1.06rem;
-$black: #000;
+$black: #272521;
 $dark: $black !default;
-$body-color: #000;
+$body-color: #272521;
 
-$font-family-sans-serif: 'Circular';
+$font-family-sans-serif: 'Sporting Grotesque';
 $font-family-base:       $font-family-sans-serif;
 
 $font-size-sm: .85rem;
 $font-size-xs: .7rem;
 
-$primary-color: #9E96F1;
-$warning-color: #FD9E10;
-$danger-color: #FD576F;
+$primary-color:  #DC7240;
+$secondary-color: #DBD6CF;
+
 
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 
 $theme-colors: (
-  "primary": #9E96F1,
+  "primary": #DC7240,
   "danger": #FD576F,
   "warning": #FD9E10,
-  "secondary": #D5ECFF,
+  "secondary": #DBD6CF,
 );

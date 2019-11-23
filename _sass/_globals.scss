@@ -1,22 +1,80 @@
 
 // Reset
 
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(90deg);
+    transform:rotate(90deg);
+  }
+  
+  30% {
+    -webkit-transform: rotate(90deg);
+    transform:rotate(90deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(0deg);
+    transform:rotate(0deg);
+  }
+
+  80% {
+    -webkit-transform: rotate(0deg);
+    transform:rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(-90deg);
+    transform:rotate(-90deg);
+  }
+}
+
+@keyframes fadeOutIntro {
+  from {
+    opacity: 1;
+    display: flex;
+  }
+
+  to {
+    opacity: 0;
+    display: none!important;
+  }
+}
+
 body {
-  background: url('images/body-bg.png') no-repeat top center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.35!important;
+  letter-spacing: -.05rem;
 }
 
 h1, h2, h3, h4, h5, h6, label {
-  font-weight: 900;
-  letter-spacing: -.1rem;
+  font-weight: 100;
+  line-height: 1.35!important;
+
+  b {
+    font-weight: bold;
+  }
+}
+
+::selection {
+  background: #B4A592;
+}
+
+a {
+  color: $primary-color;
+  
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+ul {
+  padding-left: 1.5rem;
 }
 
 .fa-ul {
-  margin-left: 2.3rem;
-  .fa-li {
-    margin-top: 7px;
-  }
+  margin-left: 1.3rem;
+
   a {
     padding-left: 1rem;
   }
@@ -24,121 +82,222 @@ h1, h2, h3, h4, h5, h6, label {
 
 .btn-primary {
   font-weight: 900;
-  @include gradient-directional($start-color: $warning-color, $end-color: $danger-color, $deg: -135deg);
   border: 0;
+  border-radius: 0;
   color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   font-size: 1rem;
-  padding: 1rem 1.5rem;
+  padding: 1rem 1.5rem .66rem;
   margin-top: 1rem;
-  &:hover {
-    box-shadow: 1px 1px 20px rgba($primary-color, .9);
-  }
+}
+
+.text-sm {
+  font-size: .9rem;
 }
 
 // Styles
 
-.main {
-  margin-top: 3rem;
-  box-shadow: 0 1.3rem 1.3rem rgba(0,0,0,.05);
-  .header {
-    padding: 3rem;
-    position: relative;
+.initial-overlay {
+  position: fixed;
+  pointer-events: none;
+  z-index: 3;
+  background: $black;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeOutIntro 1s;
+  animation-delay: 1s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.initial-overlay img {
+  -webkit-animation: spin 1s infinite;
+  animation: spin 1s infinite;
+}
+
+section {
+  padding: 6rem 0;
+}
+
+.work {
+  background: $dark;
+}
+
+.badge {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.66rem;
+  padding: .33rem;
+  font-weight: 100;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.header {
+  background: $secondary-color;
+  position: relative;
+  overflow: hidden;
+
+  .header-highlight {
+    color: $primary-color;
+    transition: all ease-in .3s;
   }
-  .gradient-shadow {
+
+  hr {
+    border-color: $dark;
+    margin: 3rem 0;
+  }
+
+  .video-container {
     position: absolute;
-    left: -40px;
-    top: -33px;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    
+    video {
+      position: absolute;
+      position: absolute;
+      left: -15.5%;
+      top: -20.5%;
+      width: 130%;
+      height: 130%;
+      opacity: 1;
+      filter: grayscale(100%);
+    }
+  }
+
+
+  .content__img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 10%;
+    top: 0;
+    background: url("../assets/images/textura.png") no-repeat center center;
+    background-size: contain;
+    will-change: transform;
   }
 }
+
 .item {
   position: relative;
+  box-shadow: 0 10px 40px rgba(0,0,0,.15);
+  transition: all ease-in 2s;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  
+  &:nth-child(even) {
+    margin-left: 1.5rem;
+  }
+
+  &:nth-child(odd) {
+    margin-right: 1.5rem;
+  }
+
+  &:hover {
+    box-shadow: 0 10px 40px rgba(0,0,0,.20);
+  }
+
   .item-box {
     position: absolute;
     width: 100%;
     left: 0;
     bottom: 0;
-    display: none;
+    top: 0;
     text-align: center;
     padding: 2rem;
-    color: #fff;
-    &.primary {
-      background: $primary-color;
-    }
-    &.danger {
-      background: $danger-color;
-    }
-    &.warning {
-      background: $warning-color;
-    }
+    color: $secondary-color;
+    background: rgba($dark, .85);
+    opacity: 0;
+    transition: all ease-in 0.33s;
+    display: flex;
   }
+
   .item-desc {
     align-self: center;
     flex: 1;
   }
+
   &:hover {
     .item-box {
-      display: flex;
+      opacity: 1;
     }
   }
 }
-#contacto {
-  position: relative;
-  padding-bottom: 9rem!important;
-}
-.contact-container {
-  position: relative;
-  .gradient-shadow-footer {
-    position: absolute;
-    right: -40px;
-    top: -97px;
+
+.about {
+  background: $primary-color;
+
+  .title-uppercase {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
   }
 }
-.footer-detail {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
+
 .form-control {
   border: 0;
   border-bottom: 1px solid;
   border-radius: 0;
   color: white!important;
-  padding: 1rem 0;
+  padding: .66rem 0;
   font-weight: 500;
-  font-size: 1.25rem;
-  &:focus {
-    border-color: $danger-color;
+  font-size: 1rem;
+
+  &::placeholder {
+    color: #fff!important;
   }
 }
-.contact-info {
-  font-size: 1.5rem;
+
+@include media-breakpoint-down(md) {
+  .header {
+    padding-top: 17rem;
+
+    .video-container {
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+
+      video {
+        left: -450%;
+        top: -300%;
+        width: 1000%;
+        height: 1000%;
+      }
+    }
+  }
 }
 
 @include media-breakpoint-down(sm) {
-  .main .header {
-    padding: 1.5rem;
-    h1 {
-      font-size: 2rem;
-      margin-top: -2rem;
-    }
+
+  html, body {
+    font-size: 14px;
   }
-  #portafolio h4 {
-    padding-top: 0!important;
+
+  section {
+    padding: 3rem 1.5rem;
   }
-  .gradient-shadow-footer {
-    display: none;
-  }
-  .contact-info > div {
-    padding: 2rem 0!important;
-  }
+
   .item {
-    margin-bottom: 1.5rem;
+    margin: 0 0 2rem!important;
+
     .item-box {
       display: flex;
       padding: 1rem;
       position: relative;
-      h3 {
-        font-size: 1.5rem;
+      background: $primary-color;
+      opacity: 1;
+
+      h2 {
+        color: $dark!important;
       }
     }
   }
